@@ -28,7 +28,11 @@ const Home = () => {
   return (
     <div className="card bg-white card-rounded w-50">
       <div className="card-header bg-dark text-center">
+<<<<<<< HEAD
         <h1>Welcome to Alert Me!</h1>
+=======
+        <h1>button</h1>
+>>>>>>> main
       </div>
       <div className="card-body m-5">
         <h2>Please login to your account:</h2>
@@ -45,9 +49,13 @@ const Home = () => {
         </ul>
       </div>
       <div className="card-footer text-center m-3">
-        <h2>Ready to create a new matchup?</h2>
+        <h2>Button</h2>
         <Link to="/matchup">
+<<<<<<< HEAD
           <button className="btn btn-lg btn-danger">Create Profile!</button>
+=======
+          <button className="btn btn-lg btn-danger">button</button>
+>>>>>>> main
         </Link>
       </div>
     </div>
