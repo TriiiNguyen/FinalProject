@@ -11,7 +11,7 @@ const contactSchema = new Schema({
     required: true,
     trim: true,
   },
-  realationship: {
+  relationship: {
     type: String,
     required: true,
     trim: true,

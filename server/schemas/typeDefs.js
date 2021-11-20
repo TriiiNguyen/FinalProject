@@ -8,7 +8,12 @@ const typeDefs = gql`
     email: String
     
   }
-
+type Contact{
+  firstName: String
+  lastName: String
+  relationship: String
+  email: String
+}
   type Auth {
     token: ID!
     profile: Profile
