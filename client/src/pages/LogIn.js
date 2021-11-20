@@ -1,8 +1,8 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-
+// need the name of the components that it is coming from
 import ProfileList from '../components/ProfileList';
-
+// need the query name
 import { QUERY_PROFILES } from '../utils/queries';
 
 const Home = () => {
@@ -18,7 +18,7 @@ const Home = () => {
           ) : (
             <ProfileList
               profiles={profiles}
-              title="Here's the current roster of friends..."
+              title="Here are your emergency contacts"
             />
           )}
         </div>

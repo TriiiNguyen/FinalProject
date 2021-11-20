@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+// need to import model
 import { getAllMatchups } from '../utils/api';
 
 const Home = () => {
+  // need to bring in the model name
   const [matchupList, setMatchupList] = useState([]);
 
   useEffect(() => {
+    // need to bring in the model and get all the models
     const getMatchupList = async () => {
       try {
         const res = await getAllMatchups();
@@ -18,16 +21,17 @@ const Home = () => {
         console.error(err);
       }
     };
+    // get model list
     getMatchupList();
   }, []);
 
   return (
     <div className="card bg-white card-rounded w-50">
       <div className="card-header bg-dark text-center">
-        <h1>Welcome to Tech Matchup!</h1>
+        <h1>Welcome to Alert Me!</h1>
       </div>
       <div className="card-body m-5">
-        <h2>Here is a list of matchups you can vote on:</h2>
+        <h2>Please login to your account:</h2>
         <ul className="square">
           {matchupList.map((matchup) => {
             return (
@@ -43,7 +47,7 @@ const Home = () => {
       <div className="card-footer text-center m-3">
         <h2>Ready to create a new matchup?</h2>
         <Link to="/matchup">
-          <button className="btn btn-lg btn-danger">Create Matchup!</button>
+          <button className="btn btn-lg btn-danger">Create Profile!</button>
         </Link>
       </div>
     </div>
