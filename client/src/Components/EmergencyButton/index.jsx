@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom'
+// import ReactDOM from 'react-dom'
 import "./style.css";
 const STYLES = [
   'btn--primary--solid',
@@ -23,7 +23,7 @@ export const EmergencyButton = ({ children, type, onClick, buttonStyle, buttonSi
   const checkButtonStyle = STYLES.includes(buttonStyle) ? buttonStyle : STYLES[0];
   const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
   return (
-    <button className={`btn ${checkButtonStyle} ${checkButtonSize}` } onClick={ onClick } type={ type }>
+    <button className={`btn ${checkButtonStyle} ${checkButtonSize}`} onClick={onClick} type={type}>HELP
     </button>
   );
 }

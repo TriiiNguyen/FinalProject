@@ -29,6 +29,7 @@
   -moz-transform: translateY(-3px);
   -ms-transform: translateY(-3px);
   -o-transform: translateY(-3px);
+  color: black; 
 }
 
 /* Button Colors and Styles */
@@ -89,11 +90,12 @@
 }
 
 .btn--large{
-  padding: 15px 30px;
-  font-size: 20px;
+  padding: 30px 80px;
+  font-size: 150px;
 }
 
 .btn--xlarge{
   padding: 50px 100px;
-  
+  font-size: 200px;
 }
+
