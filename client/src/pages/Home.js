@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 // need to import model
 import { getAllMatchups } from '../utils/api';
 import { EmergencyButton } from '../Components/EmergencyButton'
+
 const Home = () => {
   // need to bring in the model name
   const [matchupList, setMatchupList] = useState([]);
@@ -26,6 +27,7 @@ const Home = () => {
   }, []);
 
   return (
+
     <div className='Button'> 
       <button onClick={() => console.log('SEND HELP')} type="button" className='btn btn--danger--solid btn--large'>HELP</button>
     <div className="card bg-white card-rounded w-50">
@@ -54,6 +56,7 @@ const Home = () => {
       </div>
     </div>
 
+
     // <div className="card bg-white card-rounded w-50">
     //   <div className="card-header bg-dark text-center">
     //     <h1>Welcome to Tech Matchup!</h1>
@@ -79,6 +82,7 @@ const Home = () => {
     //     </Link>
     //   </div>
     // </div>
+
   );
 };
 
