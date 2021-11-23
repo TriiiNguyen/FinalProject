@@ -28,7 +28,6 @@ type Contact{
 
   type Mutation {
     addProfile(name: String!, password: INT!, email: String!): Auth
-    login(email: String!, password: String!): Auth
 
    
   }

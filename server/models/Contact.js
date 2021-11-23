@@ -1,6 +1,7 @@
 const { Schema, model } = require("mongoose");
 
 const contactSchema = new Schema({
+
   firstName: {
     type: String,
     required: true,
