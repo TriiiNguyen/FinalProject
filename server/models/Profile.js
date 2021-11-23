@@ -19,7 +19,7 @@ const profileSchema = new Schema({
     match: [/.+@.+\..+/, 'Must match an email address!'],
   },
   password: {
-    type: String,
+    type: Number,
     required: true,
     maxlength: 4,
   },
