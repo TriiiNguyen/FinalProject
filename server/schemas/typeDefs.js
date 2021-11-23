@@ -8,7 +8,12 @@ const typeDefs = gql`
     email: String
     
   }
-
+type Contact{
+  firstName: String
+  lastName: String
+  relationship: String
+  email: String
+}
   type Auth {
     token: ID!
     profile: Profile
@@ -23,7 +28,6 @@ const typeDefs = gql`
 
   type Mutation {
     addProfile(name: String!, password: INT!, email: String!): Auth
-    login(email: String!, password: String!): Auth
 
    
   }

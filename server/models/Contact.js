@@ -1,6 +1,7 @@
 const { Schema, model } = require("mongoose");
 
 const contactSchema = new Schema({
+
   firstName: {
     type: String,
     required: true,
@@ -11,7 +12,7 @@ const contactSchema = new Schema({
     required: true,
     trim: true,
   },
-  realationship: {
+  relationship: {
     type: String,
     required: true,
     trim: true,
