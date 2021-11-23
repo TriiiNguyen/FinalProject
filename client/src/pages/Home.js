@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 // need to import model
 import { getAllMatchups } from '../utils/api';
 import { EmergencyButton } from '../Components/EmergencyButton'
-
+import Navigation from '../Components/NavBar'
 const Home = () => {
   // need to bring in the model name
   const [matchupList, setMatchupList] = useState([]);
@@ -27,7 +27,8 @@ const Home = () => {
   }, []);
 
   return (
-
+    <>
+    <Navigation/>
     <div className='Button'> 
       <button onClick={() => console.log('SEND HELP')} type="button" className='btn btn--danger--solid btn--large'>HELP</button>
     <div className="card bg-white card-rounded w-50">
@@ -55,7 +56,8 @@ const Home = () => {
         </Link>
       </div>
     </div>
-
+    </div>
+    </>
 
     // <div className="card bg-white card-rounded w-50">
     //   <div className="card-header bg-dark text-center">
@@ -82,7 +84,7 @@ const Home = () => {
     //     </Link>
     //   </div>
     // </div>
-
+    
   );
 };
 
