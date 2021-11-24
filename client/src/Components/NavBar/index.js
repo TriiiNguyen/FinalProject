@@ -1,35 +1,35 @@
 import React from 'react';
+import '../NavBar/index.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
 
-export default function Nav() {
-  const linkStyle = { border: '1px black', padding: '5px' };
-
+function Navigation() {
   return (
-    <nav className="main-header-menu">
-      <section
-        style={{
-          display: 'flex',
-          fontFamily: 'helvetica',
-          flexDirection: 'row',
-          alignItems: 'flex-start',
-          justifyContent: 'flex-start',
-        }}
-      >
-        <div style={linkStyle}>
-          <a href="#">Home</a>
+    
+      <div className="navBar">
+        <Navbar bg="success" variant="dark"
+        sticky="top">
+        <Navbar.Brand>
+          
+          Alert Me
+        </Navbar.Brand>
+
+        <Nav>
+        <NavDropdown title="Profile">
+          <NavDropdown.Item href="resources">Resources</NavDropdown.Item>
+          <NavDropdown.Item href="incidentLog">Incident log</NavDropdown.Item>
+          <NavDropdown.Item href="emergencyContacts">Emergency Contacts</NavDropdown.Item>
+          </NavDropdown>
+          <Nav.Link href = "login">Login</Nav.Link>
+          <Nav.Link href = "signup">Sign up</Nav.Link>
+        </Nav>
+        </Navbar>
+        <div className="content">
+          content
         </div>
-        <div style={linkStyle}>
-          <a href="#">Login</a>
-        </div>
-        <div style={linkStyle}>
-          <a href="#">Register</a>
-        </div>
-        <div style={linkStyle}>
-          <a href="#">About</a>
-        </div>
-        <div style={linkStyle}>
-          <a href="#">Contact</a>
-        </div>
-      </section>
-    </nav>
+      </div>
+    
   );
 }
+
+export default Navigation;

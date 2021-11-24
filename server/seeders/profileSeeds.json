@@ -1,78 +1,62 @@
 [
   {
+    "id": 1,
     "name": "Brian Kernighan",
     "email": "bkernighan@techfriends.dev",
-    "password": "password01",
-    "skills": ["AWK", "AMPL", "Unix"]
+    "password": "1111"
   },
   {
+    "id": 2,
     "name": "Max Kanat-Alexander",
     "email": "mkanatalexander@techfriends.dev",
-    "password": "password02",
-    "skills": ["Java", "Perl", "Apache", "Python"]
+    "password": "2222"
   },
   {
+    "id": 3,
     "name": "Amiko",
     "email": "amiko@techfriends.dev",
-    "password": "password03",
-    "skills": ["NodeJS", "MySQL", "MongoDB", "React", "CSS-in-JS"]
+    "password": "3333"
   },
   {
+    "id": 4,
     "name": "Kent Beck",
     "email": "kbeck@techfriends.dev",
-    "password": "password04",
-    "skills": [
-      "Test-Driven Development",
-      "Extreme Programming",
-      "Software Design Patterns",
-      "JUnit"
-    ]
+    "password": "4444"
   },
   {
+    "id": 5,
     "name": "Edward V. Berard",
     "email": "evberard@techfriends.dev",
-    "password": "password05",
-    "skills": ["Object-Oriented Design"]
+    "password": "5555"
   },
   {
+    "id": 6,
     "name": "Alan Kay",
     "email": "akay@techfriends.dev",
-    "password": "password06",
-    "skills": [
-      "Graphical User Interface (GUI) Design",
-      "Jazz Guitar",
-      "Education"
-    ]
+    "password": "6666"
   },
   {
+    "id": 7,
     "name": "C.A.R. Hoare",
     "email": "choare@techfriends.dev",
-    "password": "password07",
-    "skills": ["Algorithms", "Quicksort", "Hoare Logic"]
+    "password": "7777"
   },
   {
+    "id": 8,
     "name": "David Thomas",
     "email": "dthomas@techfriends.dev",
-    "password": "password08",
-    "skills": ["Author", "Code Kata", "Ruby", "Pragmatic Programming"]
+    "password": "8888"
   },
   {
+    "id": 9,
     "name": "Donald Knuth",
     "email": "dknuth@techfriends.dev",
-    "password": "password09",
-    "skills": ["TeX Computer Typesetting", "Algorithms", "Author"]
+    "password": "9999"
   },
   {
+    "id": 10,
     "name": "Lernantino",
     "email": "lernantino@techfriends.dev",
-    "password": "password10",
-    "skills": [
-      "JavaScript",
-      "CSS",
-      "HTML",
-      "Design Systems",
-      "Typescript",
-      "PWAs"
-    ]
+    "password": "1010"
   }
 ]
