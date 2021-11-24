@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { getAllTech, createMatchup } from '../utils/api';
 
-const Matchup = () => {
+const Resources = () => {
   const [techList, setTechList] = useState([]);
   const [formData, setFormData] = useState({
     tech1: 'JavaScript',
@@ -90,4 +90,4 @@ const Matchup = () => {
   );
 };
 
-export default Matchup;
+export default Resources;

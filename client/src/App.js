@@ -8,11 +8,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <Router>
-      <div className="flex-column justify-center align-center min-100-vh bg-primary">
-        <Route exact path="/" component={Home} />
-        {/* <Route exact path="/matchup" component={Matchup} />
-        <Route exact path="/matchup/:id" component={Vote} /> */}
-      </div>
+      
+      <Route exact path="/" component={Home} />
+      
     </Router>
   );
 }

@@ -2,19 +2,19 @@ import React from 'react';
 // import ReactDOM from 'react-dom'
 import "./style.css";
 const STYLES = [
-  'btn--primary--solid',
-  'btn--warning--solid',
-  'btn--danger--solid',
-  'btn--success--solid',
-  'btn--primary--outline',
-  'btn--warning--outline',
-  'btn--danger--outline',
-  'btn--success--outline',
+  'button--primary--solid',
+  'button--warning--solid',
+  'button--danger--solid',
+  'button--success--solid',
+  'button--primary--outline',
+  'button--warning--outline',
+  'button--danger--outline',
+  'button--success--outline',
 ];
 
 const SIZES = [
-  'btn--large',
-  'btn--medium'
+  'button--large',
+  'button--medium'
 ];
 
 
@@ -23,7 +23,7 @@ export const EmergencyButton = ({ children, type, onClick, buttonStyle, buttonSi
   const checkButtonStyle = STYLES.includes(buttonStyle) ? buttonStyle : STYLES[0];
   const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
   return (
-    <button className={`btn ${checkButtonStyle} ${checkButtonSize}`} onClick={onClick} type={type}>HELP
+    <button className={`button ${checkButtonStyle} ${checkButtonSize}`} onClick={onClick} type={type}>HELP
     </button>
   );
 }

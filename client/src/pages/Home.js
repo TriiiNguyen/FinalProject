@@ -45,24 +45,26 @@ const Home = () => {
 
   return (
   <>  
-  <Navigation/>
-    <div className='Button align' >
-      {/* <button onClick={() => console.log('SEND HELP')} type="button" className='btn btn--danger--solid btn--xlarge'>HELP</button> */}
+  <Navigation sticky="top"/>
+  <div className=" min-100-vh bg-dark flex-column justify-center align-center">
+ 
+      <div className='Button align ' >
+      {/* <button onClick={() => console.log('SEND HELP')} type="button" className='button button--danger--solid button--xlarge'>HELP</button> */}
       <EmergencyButton
-        buttonSize="btn--xlarge"
-        buttonStyle="btn--danger--solid"
+        buttonSize="button--xlarge"
+        buttonStyle="button--danger--solid"
         onClick={handleEmergencyClick}
       />
     </div>
    
-    <div>
+    
+  </div>
+  <div className='float-right'>
       <SwitchButton
-        buttonSize="btn--medium"
-        buttonStyle="btn--warning--outline"
+        buttonSize="button--medium"
+        buttonStyle="button--warning--outline"
         onClick={handleSwitchClick}></SwitchButton>
     </div>
-  
-  
   
   
   </>
