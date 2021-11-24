@@ -20,16 +20,6 @@ const typeDefs = gql`
     relationship: String
     email: String
   }
-<<<<<<< HEAD
-input Contact{
-  ContactId: ID
-  firstName: String
-  lastName: String
-  relationship: String
-  email: String
-}
-=======
->>>>>>> main
   type Auth {
     token: ID!
     profile: Profile
