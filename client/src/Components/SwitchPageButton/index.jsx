@@ -19,18 +19,12 @@ const SIZES = [
 
 
 
-export const EmergencyButton = ({ children, type, onClick, buttonStyle, buttonSize }) => {
+export const SwitchButton = ({ children, type, onClick, buttonStyle, buttonSize }) => {
   const checkButtonStyle = STYLES.includes(buttonStyle) ? buttonStyle : STYLES[0];
   const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
   return (
-    <button className={`button ${checkButtonStyle} ${checkButtonSize}`} onClick={onClick} type={type}>HELP
+    <button className={`button ${checkButtonStyle} ${checkButtonSize}`} onClick={onClick} type={type}>SWITCH
     </button>
   );
 }
 
-// export const EmergencyButton ({ children, type, onClick, buttonStyle, buttonSize }) => {
-//   return(
-//     <button >
-//     </button>
-//   )
-// }
