@@ -2,6 +2,10 @@ const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const profileSchema = new Schema({
+  id: {  
+    type: Number,
+    unique: true
+  },
   name: {
     type: String,
     required: true,
@@ -15,16 +19,11 @@ const profileSchema = new Schema({
     match: [/.+@.+\..+/, 'Must match an email address!'],
   },
   password: {
-    type: String,
+    type: Number,
     required: true,
-    minlength: 5,
+    maxlength: 4,
   },
-  skills: [
-    {
-      type: String,
-      trim: true,
-    },
-  ],
+ 
 });
 
 // set up pre-save middleware to create password
