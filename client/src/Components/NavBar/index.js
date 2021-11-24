@@ -24,9 +24,7 @@ function Navigation() {
           <Nav.Link href = "signup">Sign up</Nav.Link>
         </Nav>
         </Navbar>
-        <div className="content">
-          content
-        </div>
+        
       </div>
     
   );

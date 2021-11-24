@@ -1,89 +1,75 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-// need to import model
-import { getAllMatchups } from '../utils/api';
-import { EmergencyButton } from '../Components/EmergencyButton'
+import { EmergencyButton } from '../Components/EmergencyButton';
+import { SwitchButton } from '../Components/SwitchPageButton';
 import Navigation from '../Components/NavBar'
 const Home = () => {
   // need to bring in the model name
-  const [matchupList, setMatchupList] = useState([]);
+  // const [matchupList, setMatchupList] = useState([]);
 
-  useEffect(() => {
-    // need to bring in the model and get all the models
-    const getMatchupList = async () => {
-      try {
-        const res = await getAllMatchups();
-        if (!res.ok) {
-          throw new Error('No list of matchups');
-        }
-        const matchupList = await res.json();
-        setMatchupList(matchupList);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    // get model list
-    getMatchupList();
-  }, []);
+  // useEffect(() => {
+  //   // need to bring in the model and get all the models
+  //   const getMatchupList = async () => {
+  //     try {
+  //       const res = await getAllMatchups();
+  //       if (!res.ok) {
+  //         throw new Error('No list of matchups');
+  //       }
+  //       const matchupList = await res.json();
+  //       setMatchupList(matchupList);
+  //     } catch (err) {
+  //       console.error(err);
+  //     }
+  //   };
+  //   // get model list
+  //   getMatchupList();
+  // }, []);
+
+  //Emergency Button click function 
+  const handleEmergencyClick = (event) => {
+    event.preventDefault();
+    console.log('SEND HELP');
+    //calling api from the utils api file to send a message to the user 
+    // sendMessage().then(response => {
+    //   console.log("Message sent sucessfully", response);
+    // }).catch(err => {
+    //   console.log("Error Sendin an API message", err)
+    // })
+
+  }
+  
+  const handleSwitchClick = (event) => {
+    event.preventDefault();
+    console.log('Switch To News Page')
+  }
 
   return (
-    <>
-    <Navigation/>
-    <div className='Button'> 
-      <button onClick={() => console.log('SEND HELP')} type="button" className='btn btn--danger--solid btn--large'>HELP</button>
-    <div className="card bg-white card-rounded w-50">
-      <div className="card-header bg-dark text-center">
-        <h1>Welcome to Alert Me!</h1>
-      </div>
-      <div className="card-body m-5">
-        <h2>Please login to your account:</h2>
-        <ul className="square">
-          {matchupList.map((matchup) => {
-            return (
-              <li key={matchup._id}>
-                <Link to={{ pathname: `/matchup/${matchup._id}` }}>
-                  {matchup.tech1} vs. {matchup.tech2}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-      <div className="card-footer text-center m-3">
-        <h2>Button</h2>
-        <Link to="/matchup">
-          <button className="btn btn-lg btn-danger">Create Profile!</button>
-        </Link>
-      </div>
+  <>  
+  <Navigation sticky="top"/>
+  <div className=" min-100-vh bg-dark flex-column justify-center align-center">
+ 
+      <div className='Button align ' >
+      {/* <button onClick={() => console.log('SEND HELP')} type="button" className='button button--danger--solid button--xlarge'>HELP</button> */}
+      <EmergencyButton
+        buttonSize="button--xlarge"
+        buttonStyle="button--danger--solid"
+        onClick={handleEmergencyClick}
+      />
     </div>
+   
+    
+  </div>
+  <div className='float-right'>
+      <SwitchButton
+        buttonSize="button--medium"
+        buttonStyle="button--warning--outline"
+        onClick={handleSwitchClick}></SwitchButton>
     </div>
-    </>
-
-    // <div className="card bg-white card-rounded w-50">
-    //   <div className="card-header bg-dark text-center">
-    //     <h1>Welcome to Tech Matchup!</h1>
-    //   </div>
-    //   <div className="card-body m-5">
-    //     <h2>Here is a list of matchups you can vote on:</h2>
-    //     <ul className="square">
-    //       {matchupList.map((matchup) => {
-    //         return (
-    //           <li key={matchup._id}>
-    //             <Link to={{ pathname: `/matchup/${matchup._id}` }}>
-    //               {matchup.tech1} vs. {matchup.tech2}
-    //             </Link>
-    //           </li>
-    //         );
-    //       })}
-    //     </ul>
-    //   </div>
-    //   <div className="card-footer text-center m-3">
-    //     <h2>Ready to create a new matchup?</h2>
-    //     <Link to="/matchup">
-    //       <button className="btn btn-lg btn-danger">Create Matchup!</button>
-    //     </Link>
-    //   </div>
-    // </div>
+  
+  
+  </>
+   
+  
     
   );
 };
