@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 // need the name of the components that it is coming from
-import ProfileList from '../components/ProfileList';
+import Emergency from '../pages/EmergencyContact';
 // need the query name
 import { QUERY_PROFILES } from '../utils/queries';
 

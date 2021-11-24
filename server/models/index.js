@@ -1,4 +1,3 @@
-const Profile = require('./Profile');
-const Contact = require('./Contact');
+const Profile = require("./Profile");
 
 module.exports = { Profile, Contact };

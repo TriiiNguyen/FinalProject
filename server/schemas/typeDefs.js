@@ -8,7 +8,8 @@ const typeDefs = gql`
     email: String
     
   }
-type Contact{
+input Contact{
+  ContactId: ID
   firstName: String
   lastName: String
   relationship: String
