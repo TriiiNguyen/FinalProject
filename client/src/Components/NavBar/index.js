@@ -20,7 +20,7 @@ import { Nav, Navbar, NavDropdown, Button, Modal } from 'react-bootstrap'
 </Modal.Dialog> */}
 
 function Navigation() {
-  const [modalVisble, setModalVisible] = useState(false)
+  const [modalVisible, setModalVisible] = useState(false)
 
   return (
     
@@ -38,7 +38,7 @@ function Navigation() {
           <NavDropdown.Item href="emergencyContacts">Emergency Contacts</NavDropdown.Item>
           </NavDropdown>
           <Button onClick={() => setModalVisible(true)}>Login/Sign Up</Button>
-          <Modal show={modalVisble} onHide={() => setModalVisible(false)}>
+          <Modal show={modalVisible} onHide={() => setModalVisible(false)}>
             <Modal.Header closeButton>
               <Modal.Title>Modal title</Modal.Title>
             </Modal.Header>
