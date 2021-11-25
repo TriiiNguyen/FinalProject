@@ -1,62 +1,122 @@
 [
   {
-    "id": 1,
     "name": "Brian Kernighan",
     "email": "bkernighan@techfriends.dev",
-    "password": "1111"
+    "password": "1111",
+    "contacts": [{
+      "firstName": "Jimmy",
+      "lastName" : "John",
+      "relationship": "Son",
+      "phoneNumber": "123-456-7890",
+      "email": "bkernighan1@techfriends.dev"
+      }]
   },
   {
-    "id": 2,
     "name": "Max Kanat-Alexander",
     "email": "mkanatalexander@techfriends.dev",
-    "password": "2222"
+    "password": "2222",
+    "contacts": [{
+      "firstName" : "Doug",
+        "lastName" : "Dimmadone",
+        "relationship": "Grandpa",
+        "phoneNumber": "123-456-7890",
+        "email": "bkernighan2@techfriends.dev"
+      }]
   },
   {
-    "id": 3,
     "name": "Amiko",
     "email": "amiko@techfriends.dev",
-    "password": "3333"
+    "password": "3333",
+    "contacts": [{
+      "firstName" : "Carls",
+      "lastName" : "Jr",
+      "relationship": "Tio",
+      "phoneNumber": "123-456-7890",
+      "email": "bkernighan3@techfriends.dev"
+      }]
   },
   {
-    "id": 4,
     "name": "Kent Beck",
     "email": "kbeck@techfriends.dev",
-    "password": "4444"
+    "password": "4444",
+    "contacts": [{
+      "firstName" : "Wendy",
+        "lastName" : "John",
+        "relationship": "Sister",
+        "phoneNumber": "123-456-7890",
+        "email": "bkernighan4@techfriends.dev"
+      }]
   },
   {
-    "id": 5,
     "name": "Edward V. Berard",
     "email": "evberard@techfriends.dev",
-    "password": "5555"
+    "password": "5555",
+    "contacts": [{
+      "firstName" : "Burger",
+        "lastName" : "King",
+        "relationship": "Brother",
+        "phoneNumber": "123-456-7890",
+        "email": "bkernighan5@techfriends.dev"
+      }]
   },
   {
-    "id": 6,
     "name": "Alan Kay",
     "email": "akay@techfriends.dev",
-    "password": "6666"
+    "password": "6666",
+    "contacts": [{
+      "firstName" : "Robert",
+      "lastName" : "Toe",
+      "relationship": "Cousin",
+      "phoneNumber": "123-456-7890",
+      "email": "bkernighan6@techfriends.dev"
+      }]
   },
-  {
-    "id": 7,
+  { 
     "name": "C.A.R. Hoare",
     "email": "choare@techfriends.dev",
-    "password": "7777"
+    "password": "7777",
+    "contacts": [{
+      "firstName" : "Jack",
+        "lastName" : "Box",
+        "relationship": "Brother",
+        "phoneNumber": "123-456-7890",
+        "email": "bkernighan7@techfriends.dev"
+      }]
   },
   {
-    "id": 8,
     "name": "David Thomas",
     "email": "dthomas@techfriends.dev",
-    "password": "8888"
+    "password": "8888",
+    "contacts": [{
+      "firstName" : "Farmer",
+        "lastName" : "Bois",
+        "relationship": "Sister",
+        "phoneNumber": "123-456-7890",
+        "email": "bkernighan8@techfriends.dev"
+      }]
   },
   {
-    "id": 9,
     "name": "Donald Knuth",
     "email": "dknuth@techfriends.dev",
-    "password": "9999"
+    "password": "9999",
+    "contacts": [{
+      "firstName": "Jimmy",
+      "lastName" : "John",
+      "relationship": "Son",
+      "phoneNumber": "123-456-7890",
+      "email": "bkernighan9@techfriends.dev"
+      }]
   },
   {
-    "id": 10,
     "name": "Lernantino",
     "email": "lernantino@techfriends.dev",
-    "password": "1010"
+    "password": "1010",
+    "contacts": [{
+      "firstName": "Jimmy",
+      "lastName" : "John",
+      "relationship": "Son",
+      "phoneNumber": "123-456-7890",
+      "email": "bkernighan10@techfriends.dev"
+      }]
   }
 ]
