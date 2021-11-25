@@ -1,49 +1,54 @@
-export const getAllMatchups = () => {
-  return fetch('/api/matchup', {
-    method: 'GET',
+// route to get logged in user's info (needs the token)
+export const getMe = (token) => {
+  return fetch('/api/users/me', {
     headers: {
       'Content-Type': 'application/json',
+      authorization: `Bearer ${token}`,
     },
   });
 };
 
-// export const createMatchup = (matchupData) => {
-//   return fetch('/api/matchup', {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify(matchupData),
-//   });
-// };
+export const createUser = (userData) => {
+  return fetch('/api/users', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(userData),
+  });
+};
 
-// export const getMatchup = (matchupId) => {
-//   return fetch(`/api/matchup/${matchupId}`, {
-//     method: 'GET',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//   });
-// };
+export const loginUser = (userData) => {
+  return fetch('/api/users/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(userData),
+  });
+};
 
-// export const createVote = (voteData) => {
-//   return fetch(`/api/matchup/${voteData}`, {
-//     method: 'PUT',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify(voteData),
-//   });
-// };
+// save book data for a logged in user
+export const saveBook = (bookData, token) => {
+  return fetch('/api/users', {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(bookData),
+  });
+};
 
-// export const getAllTech = () => {
-//   return fetch('/api/tech', {
-//     method: 'GET',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//   });
-// };
+// remove saved book data for a logged in user
+export const deleteBook = (bookId, token) => {
+  return fetch(`/api/users/books/${bookId}`, {
+    method: 'DELETE',
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  });
+};
 
 export const sendMessage = (query) => {
   //var sendMessageAPI_URL = "https://sqs.us-east-2amazonaws.com/123456789012/MyQueue/? Action = SendMessage & MessageBody=This+is + a + test + message& DelaySeconds=45& Expires=2020 - 12 - 18T22 % 3A52 % 3A43PST& Version=2012 - 11 - 05& AUTHPARAMS"

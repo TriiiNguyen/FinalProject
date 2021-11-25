@@ -1,30 +1,19 @@
 import React from 'react';
-import { useQuery } from '@apollo/client';
-// need the name of the components that it is coming from
-import Emergency from '../pages/EmergencyContact';
-// need the query name
-import { QUERY_PROFILES } from '../utils/queries';
+import '../Components/LoginForm';
+import "bootstrap/dist/css/bootstrap.css";
+import {Button, Alert, Row, Col} from 'react-bootstrap';
+import LoginForm from "./components/Login.js";
 
-const Home = () => {
-  const { loading, data } = useQuery(QUERY_PROFILES);
-  const profiles = data?.profiles || [];
 
+
+function LoginForm() {
   return (
-    <main>
-      <div className="flex-row justify-center">
-        <div className="col-12 col-md-10 my-3">
-          {loading ? (
-            <div>Loading...</div>
-          ) : (
-            <ProfileList
-              profiles={profiles}
-              title="Here are your emergency contacts"
-            />
-          )}
-        </div>
-      </div>
-    </main>
-  );
-};
+      <>
+    <div>
+     <LoginForm/>
+    </div>
+    </>
+)
+}
 
-export default Home;
+export default LoginForm;
