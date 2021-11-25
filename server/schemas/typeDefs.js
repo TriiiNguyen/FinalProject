@@ -9,6 +9,7 @@ const typeDefs = gql`
     contacts: [Contact]
   }
   type Contact {
+    contactId: ID
     firstName: String
     lastName: String
     relationship: String
