@@ -13,12 +13,14 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     relationship: String
+    phoneNumber: String
     email: String
   }
   input ContactInput {
     firstName: String
     lastName: String
     relationship: String
+    phoneNumber: String
     email: String
   }
   type Auth {
