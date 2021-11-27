@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { EmergencyButton } from '../Components/EmergencyButton';
 import { SwitchButton } from '../Components/SwitchPageButton';
 import Navigation from '../Components/NavBar'
+import ContentBoxes from '../Components/Boxes';
 const Home = () => {
   // need to bring in the model name
   // const [matchupList, setMatchupList] = useState([]);
@@ -48,24 +49,28 @@ const Home = () => {
   <Navigation sticky="top"/>
   <div className=" min-100-vh bg-dark flex-column justify-center align-center">
  
-      <div className='Button align ' >
+      <div className="" >
       {/* <button onClick={() => console.log('SEND HELP')} type="button" className='button button--danger--solid button--xlarge'>HELP</button> */}
       <EmergencyButton
         buttonSize="button--xlarge"
         buttonStyle="button--danger--solid"
         onClick={handleEmergencyClick}
       />
+      
     </div>
-   
+    
     
   </div>
-  <div className='float-right'>
-      <SwitchButton
+  <div className="flex-row align-right bg-dark">
+      <SwitchButton 
         buttonSize="button--medium"
         buttonStyle="button--warning--outline"
         onClick={handleSwitchClick}></SwitchButton>
     </div>
   
+  <div>
+    <ContentBoxes>contents</ContentBoxes>
+  </div>
   
   </>
    

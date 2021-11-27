@@ -77,18 +77,35 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    // Make it so a logged in user can only remove a skill from their own profile
-    // removeSkill: async (parent, { skill }, context) => {
-    //   if (context.user) {
-    //     return Profile.findOneAndUpdate(
-    //       { _id: context.user._id },
-    //       { $pull: { skills: skill } },
-    //       { new: true }
-    //     );
-    //   }
-    //   throw new AuthenticationError('You need to be logged in!');
-    // },
+    deleteContact: async (parent, args, context) => {
+      if (context.user) {
+      return Profile.findOneAndDelete(
+               { _id: context.user._id },
+            
+             );
+       };
+       throw new AuthenticationError('You need to be logged in!');
+       },
+  
+       updateContact: async (parent, {contactData} , context) => {
+        //   // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
+        if (context.user) {
+          return Profile.findOneAndUpdate(
+            { _id: context.user._id },
+            {
+              $addToSet: { Profile:  password, email },
+            },
+            {
+              new: true,
+              runValidators: true,
+            }
+          );
+        }
+      },
   },
+    // Make it so a logged in user can only remove a skill from their own profile
+ 
+     
 };
 
 module.exports = resolvers;
