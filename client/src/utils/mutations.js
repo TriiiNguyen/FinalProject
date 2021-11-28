@@ -23,3 +23,58 @@ export const LOGIN_USER = gql`
     }
   }
 `;
+export const UPDATE_PROFILE = gql`
+  mutation updateProfile($_id: ID) {
+    updateProfile(_id: $_id) {
+      token
+      profile {
+        _id
+        name
+      }
+    }
+  }
+`;
+export const DELETE_PROFILE = gql`
+  mutation deleteProfile($_id: ID) {
+    deleteProfile(_id: $_id) {
+      token
+      profile {
+        _id
+        name
+      }
+    }
+  }
+`;
+export const DELETE_CONTACT = gql`
+  mutation deleteContact($_id: ID) {
+    deleteContact(_id: $_id) {
+      token
+      profile {
+        _id
+        name
+      }
+    }
+  }
+`;
+export const UPDATE_CONTACT = gql`
+  mutation updateContact($_id: ID) {
+    updateContact(_id: $_id) {
+      token
+      profile {
+        _id
+        name
+      }
+    }
+  }
+`;
+export const ADD_CONTACT = gql`
+  mutation addContact($_id: ID) {
+    addContact(_id: $_id) {
+      token
+      profile {
+        _id
+        name
+      }
+    }
+  }
+`;

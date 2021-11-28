@@ -17,6 +17,7 @@ const typeDefs = gql`
     email: String
   }
   input ContactInput {
+    contactId: String
     firstName: String
     lastName: String
     relationship: String
@@ -38,10 +39,10 @@ const typeDefs = gql`
   type Mutation {
     addProfile(name: String!, password: String!, email: String!): Auth
     login(email:String!, password: String!): Auth
-    updateProfile(name: String, password: String, email: String): Auth
+    updateProfile(_id: ID): Auth
     deleteProfile(_id: ID): Auth
     addContact(contactData: ContactInput): Profile
-    deleteContact(contactData: ContactInput): Profile
+    deleteContact(contactId: ID): Profile
     updateContact(contactData: ContactInput): Profile
   }
 `;
