@@ -39,7 +39,7 @@ const typeDefs = gql`
   type Mutation {
     addProfile(name: String!, password: String!, email: String!): Auth
     login(email:String!, password: String!): Auth
-    updateProfile(_id: ID): Auth
+    updateProfile(name: String, password: String, email: String): Auth
     deleteProfile(_id: ID): Auth
     addContact(contactData: ContactInput): Profile
     deleteContact(contactId: ID): Profile
