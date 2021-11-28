@@ -4,6 +4,7 @@ import { EmergencyButton } from '../Components/EmergencyButton';
 import { SwitchButton } from '../Components/SwitchPageButton';
 import Navigation from '../Components/NavBar'
 import ContentBoxes from '../Components/Boxes';
+import "../index.css"
 const Home = () => {
   // need to bring in the model name
   // const [matchupList, setMatchupList] = useState([]);
@@ -30,6 +31,7 @@ const Home = () => {
   const handleEmergencyClick = (event) => {
     event.preventDefault();
     console.log('SEND HELP');
+
     //calling api from the utils api file to send a message to the user 
     // sendMessage().then(response => {
     //   console.log("Message sent sucessfully", response);
@@ -38,44 +40,44 @@ const Home = () => {
     // })
 
   }
-  
+
   const handleSwitchClick = (event) => {
     event.preventDefault();
     console.log('Switch To News Page')
   }
 
   return (
-  <>  
-  <Navigation sticky="top"/>
-  <div className=" min-100-vh bg-dark flex-column justify-center align-center">
- 
-      <div className="" >
-      {/* <button onClick={() => console.log('SEND HELP')} type="button" className='button button--danger--solid button--xlarge'>HELP</button> */}
-      <EmergencyButton
-        buttonSize="button--xlarge"
-        buttonStyle="button--danger--solid"
-        onClick={handleEmergencyClick}
-      />
-      
-    </div>
-    
-    
-  </div>
-  <div className="flex-row align-right bg-dark">
-      <SwitchButton 
-        buttonSize="button--medium"
-        buttonStyle="button--warning--outline"
-        onClick={handleSwitchClick}></SwitchButton>
-    </div>
-  
-  <div>
-    <ContentBoxes>contents</ContentBoxes>
-  </div>
-  
-  </>
-   
-  
-    
+    <>
+      <Navigation sticky="top" />
+      <div className=" min-100-vh bg-dark flex-column justify-center align-center">
+
+
+        {/* <button onClick={() => console.log('SEND HELP')} type="button" className='button button--danger--solid button--xlarge'>HELP</button> */}
+        <EmergencyButton
+          buttonSize="button--xlarge"
+          buttonStyle="button--danger--solid"
+          onClick={handleEmergencyClick}
+        />
+
+
+
+
+      </div>
+      <div className="flex-row align-right bg-dark">
+        <SwitchButton
+          buttonSize="button--medium"
+          buttonStyle="button--warning--outline"
+          onClick={handleSwitchClick}></SwitchButton>
+      </div>
+
+      <div >
+        <ContentBoxes>contents</ContentBoxes>
+      </div>
+
+    </>
+
+
+
   );
 };
 
