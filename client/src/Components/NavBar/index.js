@@ -148,13 +148,6 @@ function Navigation() {
 
 
         </Nav>
-<<<<<<< HEAD
-      </Navbar>
-
-    </div>
-
-
-=======
 
         
 
@@ -165,7 +158,6 @@ function Navigation() {
     </div>
 
 
->>>>>>> a6adcb8b16fa984f376dbbc0ecfc11f73831ed18
   );
 
 
