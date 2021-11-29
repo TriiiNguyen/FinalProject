@@ -12,7 +12,7 @@ const Profile = () => {
 
   // If there is no `profileId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
   const { loading, data } = useQuery(
-    
+
     {
       variables: { profileId: profileId },
     }
@@ -40,23 +40,31 @@ const Profile = () => {
   }
 
   return (
-    <div>
-      <h2 className="card-header">
-        {profileId ? `${profile.name}'s` : 'Your'} friends have endorsed these
-        skills...
-      </h2>
-
-      {profile.skills?.length > 0 && (
-        <SkillsList
-          skills={profile.skills}
-          isLoggedInUser={!profileId && true}
-        />
-      )}
-
-      <div className="my-4 p-4" style={{ border: '1px dotted #1a1a1a' }}>
-        <SkillForm profileId={profile._id} />
-      </div>
+    <div class="section">
+      <h4>Update User Info</h4>
+      <form class="form update-user-form">
+        <div class="form-group">
+          <label for="userFirstName-update">First Name:</label>
+          <input class="form-input" type="text" id="userFirstName-update" />
+        </div>
+        <div class="form-group">
+          <label for="userLastName-update">Last Name:</label>
+          <input class="form-input" type="text" id="userLastName-update" />
+        </div>
+        <div class="form-group">
+          <label for="user-email">Email:</label>
+          <input class="form-input" type="text" id="user-email" />
+        </div>
+        <div class="form-group">
+          <label for="user-PrimaryPhone">Primary Phone:</label>
+          <input class="form-input" type="text" id="user-PrimaryPhone" />
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary" type="submit">Update Contact's Info</button>
+        </div>
+      </form>
     </div>
+
   );
 };
 

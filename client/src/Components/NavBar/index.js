@@ -36,7 +36,7 @@ function Navigation() {
           <NavDropdown title="Profile">
             <NavDropdown.Item href="resources">Resources</NavDropdown.Item>
             <NavDropdown.Item href="incidentLog">Incident log</NavDropdown.Item>
-            <NavDropdown.Item href="emergencyContacts">Emergency Contacts</NavDropdown.Item>
+            <NavDropdown.Item href="./client/pages/Profile.js">Profile</NavDropdown.Item>
           </NavDropdown>
           <Button id='loginBtn' onClick={() => setModalVisible(true)}>Login</Button>
           <Modal id='Modal1' show={modalVisible} onHide={() => setModalVisible(false)}>
