@@ -42,7 +42,7 @@ const profileSchema = new Schema({
       },
       phoneNumber: {
         type: String,
-        match: [/^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/,"Must match a phone number!"]
+        //match: [/^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/,"Must match a phone number!"]
       },
       email: {
         type: String,

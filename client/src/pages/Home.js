@@ -75,7 +75,7 @@ const Home = () => {
 
         {/* <button onClick={() => console.log('SEND HELP')} type="button" className='button button--danger--solid button--xlarge'>HELP</button> */}
         <EmergencyButton
-          buttonSize="button--xlarge"
+          buttonSize="button--medium"
           buttonStyle="button--danger--solid"
           onClick={handleEmergencyClick}
         />
