@@ -67,14 +67,14 @@ export const DELETE_PROFILE = gql`
 //     }
 //   }
 // `;
-// export const ADD_CONTACT = gql`
-//   mutation addContact($_id: ID) {
-//     addContact(_id: $_id) {
-//       token
-//       profile {
-//         _id
-//         name
-//       }
-//     }
-//   }
-// `;
+ export const ADD_CONTACT = gql`
+   mutation addContact($contactDate: ContactInput) {
+     addContact(contactDate: $ContactInput) {
+      _id
+      name
+      password
+      email
+      contacts
+     }
+   }
+ `;

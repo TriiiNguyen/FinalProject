@@ -52,14 +52,12 @@ const resolvers = {
 
       return { token, contact };
     },
-    updateProfile: async (parent, {name, password, email}, context) => {
+    updateProfile: async (parent, { name, password, email }, context) => {
       //   // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
       if (context.user) {
         return Profile.findOneAndUpdate(
           { _id: context.user._id },
-          {
-            $addToSet: { Profile: name, password, email },
-          },
+          {$push: { name: name, passsword: password, email: email }},
           {
             new: true,
             runValidators: true,
@@ -77,10 +75,10 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    deleteContact: async (parent, {contactId}, context) => {
+    deleteContact: async (parent, args, context) => {
       if (context.user) {
       return Profile.findOneAndDelete(
-               { _id: context.user.contactId },
+               { _id: context.user._id },
             
              );
        };
