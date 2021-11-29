@@ -4,7 +4,7 @@ export const sendMessage = (query) => {
 
   //connect the front-end with the express route that sends message using twiliio 
 
-   fetch('http://localhost:3001/api/messages', {
+   fetch('/api/messages', {
     method: "POST",
     headers: {
       'Content - Type': 'application / json'
