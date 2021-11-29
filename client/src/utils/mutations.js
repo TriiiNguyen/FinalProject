@@ -45,31 +45,31 @@ export const DELETE_PROFILE = gql`
      }
    }
  `;
-// export const DELETE_CONTACT = gql`
-//   mutation deleteContact($_id: ID) {
-//     deleteContact(_id: $_id) {
-//       token
-//       profile {
-//         _id
-//         name
-//       }
-//     }
-//   }
-// `;
-// export const UPDATE_CONTACT = gql`
-//   mutation updateContact($_id: ID) {
-//     updateContact(_id: $_id) {
-//       token
-//       profile {
-//         _id
-//         name
-//       }
-//     }
-//   }
-// `;
+ export const DELETE_CONTACT = gql`
+   mutation deleteContact($contactData: ContactInput) {
+     deleteContact(contactData: $ContactInput) {
+      _id
+      name
+      password
+      email
+      contacts
+     }
+   }
+ `;
+ export const UPDATE_CONTACT = gql`
+   mutation deleteContact($contactData: ContactInput) {
+  deleteContact(contactData: $ContactInput) {
+    _id
+    name
+    password
+    email
+    contacts
+   }
+ }
+ `;
  export const ADD_CONTACT = gql`
-   mutation addContact($contactDate: ContactInput) {
-     addContact(contactDate: $ContactInput) {
+   mutation addContact($contactData: ContactInput) {
+     addContact(contactData: $ContactInput) {
       _id
       name
       password

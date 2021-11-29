@@ -42,7 +42,7 @@ const typeDefs = gql`
     updateProfile(name: String, password: String, email: String): Auth
     deleteProfile(_id: ID): Auth
     addContact(contactData: ContactInput): Profile
-    deleteContact(contactId: ID): Profile
+    deleteContact(contactData: ContactInput): Profile
     updateContact(contactData: ContactInput): Profile
   }
 `;

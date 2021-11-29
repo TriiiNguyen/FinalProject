@@ -78,7 +78,7 @@ const resolvers = {
     deleteContact: async (parent, args, context) => {
       if (context.user) {
       return Profile.findOneAndDelete(
-               { _id: context.user._id },
+               { contacts: context.user.contactId},
             
              );
        };
