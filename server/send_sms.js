@@ -6,8 +6,11 @@ const client = require('twilio')(accountSid, authToken);
 
 client.messages
   .create({
-     body: 'This is a TEST for the Danger App!!',
-     from: '+16108970733',
-     to: '+17147370501'
-   })
-  .then(message => console.log(message.sid));
+    body: 'This is a TEST for the Danger App!!',
+    from: '+16108970733',
+    to: '+17147370501'
+  })
+  .then(message => {
+    console.log(message.sid);
+    return message;
+  });

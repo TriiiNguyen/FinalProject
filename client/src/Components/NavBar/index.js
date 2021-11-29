@@ -25,7 +25,7 @@ function Navigation() {
 
   return (
 
-    <div className="navBar">
+    <div className="navBar sticky">
       <Navbar bg="success" variant="dark"
         sticky="top">
         <Navbar.Brand>
