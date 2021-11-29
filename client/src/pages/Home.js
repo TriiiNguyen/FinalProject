@@ -5,6 +5,9 @@ import { SwitchButton } from '../Components/SwitchPageButton';
 import Navigation from '../Components/NavBar'
 import ContentBoxes from '../Components/Boxes';
 import "../index.css"
+import {sendMessage} from '../utils/api'; 
+
+
 const Home = () => {
   // need to bring in the model name
   // const [matchupList, setMatchupList] = useState([]);
@@ -31,7 +34,25 @@ const Home = () => {
   const handleEmergencyClick = (event) => {
     event.preventDefault();
     console.log('SEND HELP');
+    
+    const reply = sendMessage(); 
+    console.log(reply); 
 
+    fetch('/api/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      //body: JSON.stringify(this.state.message)
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          console.log("twilio sent a message ", data);
+        } else {
+         console.log("failed to send message", data); 
+        }
+      });
     //calling api from the utils api file to send a message to the user 
     // sendMessage().then(response => {
     //   console.log("Message sent sucessfully", response);
@@ -63,15 +84,15 @@ const Home = () => {
 
 
       </div>
-      <div className="flex-row align-right bg-dark">
+
+      <div >
+        <ContentBoxes>contents</ContentBoxes>
+      </div>
+      <div className="flex-row align-right bg-dark ">
         <SwitchButton
           buttonSize="button--medium"
           buttonStyle="button--warning--outline"
           onClick={handleSwitchClick}></SwitchButton>
-      </div>
-
-      <div >
-        <ContentBoxes>contents</ContentBoxes>
       </div>
 
     </>
