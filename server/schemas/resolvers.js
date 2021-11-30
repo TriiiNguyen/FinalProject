@@ -5,13 +5,13 @@ const mongoose = require('mongoose')
 
 const resolvers = {
   Query: {
-    profiles: async () => {
-      return Profile.find();
-    },
+    // profiles: async () => {
+    //   return Profile.find();
+    // },
 
-    profile: async (parent, { profileId }) => {
-      return Profile.findOne({ _id: profileId });
-    },
+    // profile: async (parent, { profileId }) => {
+    //   return Profile.findOne({ _id: profileId });
+    // },
     // By adding context to our query, we can retrieve the logged in user without specifically searching for them
     me: async (parent, args, context) => {
       if (context.user) {
@@ -22,6 +22,8 @@ const resolvers = {
   },
 
   Mutation: {
+    // addProfile: async (parent,args) => {
+      // const profile = await Profile.create(args);
     addProfile: async (parent, { name, email, password, contacts }) => {
       const profileObject = { name, email, password, contacts: [...contacts] }
       console.log(profileObject)
@@ -50,18 +52,11 @@ const resolvers = {
     // Add a third argument to the resolver to access data in our `context`
     addContact: async (parent, { contactData }, context) => {
       //   // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
-      const contact = await Profile.create({ contactData });
-      const token = signToken(contact);
-
-      return { token, contact };
-    },
-    updateProfile: async (parent, { name, password, email }, context) => {
-      //   // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
       if (context.user) {
         return Profile.findOneAndUpdate(
           { _id: context.user._id },
           {
-            $addToSet: { Profile: name, password, email },
+            $addToSet: { contacts: {contactData} },
           },
           {
             new: true,
@@ -70,14 +65,18 @@ const resolvers = {
         );
       }
     },
-    //   // If user attempts to execute this mutation and isn't logged in, throw an error
-    //   throw new AuthenticationError('You need to be logged in!');
-    // },
-    // Set up mutation so a logged in user can only remove their profile and no one else's
-    deleteProfile: async (parent, args, context) => {
+    updateProfile: async (parent, { name, password, email }, context) => {
+      //   // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
       if (context.user) {
-        return Profile.findOneAndDelete({ _id: context.user._id });
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $push: { contacts: contactData } },
+          { new: true }
+        );
+
+        return updatedUser;
       }
+
       throw new AuthenticationError("You need to be logged in!");
     },
 
@@ -105,7 +104,7 @@ const resolvers = {
         return Profile.findOneAndUpdate(
           { _id: context.user._id },
           {
-            $addToSet: { Profile: password, email },
+            $addToSet: { contacts: {contactData} },
           },
           {
             new: true,

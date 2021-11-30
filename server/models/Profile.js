@@ -1,6 +1,8 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
+const contactSchema = require('./Contact')
+
 const profileSchema = new Schema({
 
   name: {
@@ -21,6 +23,9 @@ const profileSchema = new Schema({
   },
   contacts: [
     {
+      contactId: {
+        type: Schema.ObjectId
+      },
       firstName: {
         type: String,
         required: true,
