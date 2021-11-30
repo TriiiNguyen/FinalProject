@@ -40,7 +40,7 @@ export const ADD_CONTACT = gql`
     }
   }
 `
-
+//delete contact
 export const DELETE_CONTACT = gql`
   mutation deleteContact($contactId: contactId) {
     deleteContact(contactId: $contactId) {
@@ -56,6 +56,7 @@ export const DELETE_CONTACT = gql`
     }
   }
 `
+
 //update contact
 export const UPDATE_CONTACT = gql`
   mutation updateContact($contactData: contactInput) {

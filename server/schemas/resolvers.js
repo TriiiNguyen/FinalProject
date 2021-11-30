@@ -1,6 +1,7 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { Profile } = require("../models");
 const { signToken } = require("../utils/auth");
+const mongoose = require('mongoose')
 
 const resolvers = {
   Query: {
@@ -24,7 +25,9 @@ const resolvers = {
     // addProfile: async (parent,args) => {
       // const profile = await Profile.create(args);
     addProfile: async (parent, { name, email, password, contacts }) => {
-      const profile = await Profile.create({ name, email, password, contacts: [{ ...contacts }] });
+      const profileObject = { name, email, password, contacts: [...contacts] }
+      console.log(profileObject)
+      const profile = await Profile.create(profileObject);
       const token = signToken(profile);
 
       return { token, profile };
