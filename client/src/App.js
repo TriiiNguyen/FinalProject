@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
+import EmergencyContact from './pages/EmergencyContact'
 // import Matchup from './pages/Matchup';
 // import Vote from './pages/Vote';
 import SignupForm from './pages/SignUp';

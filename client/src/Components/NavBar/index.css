@@ -4,4 +4,15 @@
 
 .content{
   padding: 12px;
+  padding-left: .05 rem;
+}
+
+.nav {
+  padding-left: .5 rem;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
 }

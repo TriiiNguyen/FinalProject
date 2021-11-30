@@ -14,13 +14,15 @@ const typeDefs = gql`
     firstName: String!
     lastName: String!
     relationship: String
+    phoneNumber: String
     email: String
   }
 
   input ContactInput {
-    firstName: String!
-    lastName: String!
-    relationship: String!
+    firstName: String
+    lastName: String
+    relationship: String
+    phoneNumber: String
     email: String
   }
 
@@ -37,13 +39,13 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addProfile(name: String!, email: String!, password: String!,): Auth
+    addProfile(name: String!, password: String!, email: String!, contacts: ContactInput!): Auth
     login(email:String!, password: String!): Auth
-    # updateProfile(name: String, password: String, email: String): Auth
-    # deleteProfile(_id: ID): Auth
+    updateProfile(name: String, password: String, email: String): Profile
+    deleteProfile(_id: ID): Auth
     addContact(contactData: ContactInput): Profile
-    # deleteContact(contactId: ID!): Profile
-    # updateContact(contactData: ContactInput): Profile
+    deleteContact(contactId: ID!): Profile
+    updateContact(contactData: ContactInput): Profile
   }
 `;
 

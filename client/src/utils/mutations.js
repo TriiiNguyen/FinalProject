@@ -1,15 +1,15 @@
 import { gql } from "@apollo/client";
 
 export const ADD_PROFILE = gql`
-  mutation addProfile($name: String!, $email: String!, $password: String!) {
-    addProfile(name: $name, email: $email, password: $password) {
-      token
-      profile {
-        _id
-        name
-      }
+  mutation addProfile($name: String!, $password: String!, $email: String!, $contacts: ContactInput!){
+  addProfile(name: $name, password: $password, email: $email, contacts: $contacts){
+    token
+    profile{
+      _id
+      name
     }
   }
+}
 `;
 
 export const LOGIN_USER = gql`
@@ -24,4 +24,67 @@ export const LOGIN_USER = gql`
   }
 `;
 
-// add contact and refer to the SAVE_BOOK mutation
+export const ADD_CONTACT = gql`
+  mutation addContact ($contactData:ContactInput) {
+    addContact(contactData: $contactData){
+      _id
+      name
+      contacts {
+        contactId
+        firstName
+        lastName
+        relationship
+        email
+      }
+
+    }
+  }
+`
+
+export const DELETE_CONTACT = gql`
+  mutation deleteContact($contactId: contactId) {
+    deleteContact(contactId: $contactId) {
+      _id
+      name
+      contacts {
+        contactId
+        firstName
+        lastName
+        relationship
+        email
+      }
+    }
+  }
+`
+//update contact
+export const UPDATE_CONTACT = gql`
+  mutation updateContact($contactData: contactInput) {
+    updateContact(contactData: $contactData) {
+      _id
+      name
+      contacts {
+        contactId
+        firstName
+        lastName
+        relationship
+        email
+      }
+    }
+  }
+`
+//update user
+export const UPDATE_PROFILE = gql`
+  mutation updateProfile($name: String!, $password: String!, $email: String!, $contacts: ContactInput!){
+  updateProfile(name: $name, password: $password, email: $email, contacts: $contacts){
+    _id
+      name
+      contacts {
+        contactId
+        firstName
+        lastName
+        relationship
+        email
+      }
+  }
+}
+`;

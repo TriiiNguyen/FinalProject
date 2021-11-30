@@ -21,8 +21,10 @@ const resolvers = {
   },
 
   Mutation: {
-    addProfile: async (parent,args) => {
-      const profile = await Profile.create(args);
+    // addProfile: async (parent,args) => {
+      // const profile = await Profile.create(args);
+    addProfile: async (parent, { name, email, password, contacts }) => {
+      const profile = await Profile.create({ name, email, password, contacts: [{ ...contacts }] });
       const token = signToken(profile);
 
       return { token, profile };
@@ -48,6 +50,21 @@ const resolvers = {
     addContact: async (parent, { contactData }, context) => {
       //   // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
       if (context.user) {
+        return Profile.findOneAndUpdate(
+          { _id: context.user._id },
+          {
+            $addToSet: { contacts: {contactData} },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+      }
+    },
+    updateProfile: async (parent, { name, password, email }, context) => {
+      //   // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
+      if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
           { $push: { contacts: contactData } },
@@ -58,48 +75,45 @@ const resolvers = {
       }
 
       throw new AuthenticationError("You need to be logged in!");
-
     },
-  //   updateProfile: async (parent, { name, password, email }, context) => {
-  //     //   // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
-  //     if (context.user) {
-  //       return Profile.findOneAndUpdate(
-  //         { _id: context.user._id },
-  //         {
-  //           $addToSet: { Profile: name, password, email },
-  //         },
-  //         {
-  //           new: true,
-  //           runValidators: true,
-  //         }
-  //       );
-  //     }
-  //   },
-  //   //   // If user attempts to execute this mutation and isn't logged in, throw an error
-  //   //   throw new AuthenticationError('You need to be logged in!');
-  //   // },
-  //   // Set up mutation so a logged in user can only remove their profile and no one else's
-  //   deleteProfile: async (parent, args, context) => {
-  //     if (context.user) {
-  //       return Profile.findOneAndDelete({ _id: context.user._id });
-  //     }
-  //     throw new AuthenticationError("You need to be logged in!");
-  //   }
-  // },
-    // Make it so a logged in user can only remove a skill from their own profile
-  // deleteContact: async (parent, { contactData }, context) => {
-  //  if (context.user.contactData) {
-  //    return Profile.findOneAndUpdate(
-  //           { _id: context.user._id },
-  //           { $pull: { skills: skill } },
-  //           { new: true }
-  //         );
-  //      }
-  //     }
-  //   },
-  //   throw new AuthenticationError('You need to be logged in!');
-  //   // },
+
+
+    deleteContact: async (parent, { contactId }, context) => {
+      if (context.user) {
+        return Profile.findOneAndUpdate(
+          { _id: context.user._id },
+          {
+            $pull: {
+              contacts: {
+                contactId
+              }
+            }
+          },
+          {new: true}
+        );
+      };
+      throw new AuthenticationError('You need to be logged in!');
+    },
+
+    updateContact: async (parent, { contactData }, context) => {
+      //   // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
+      if (context.user) {
+        return Profile.findOneAndUpdate(
+          { _id: context.user._id },
+          {
+            $addToSet: { contacts: {contactData} },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+      }
+    },
   },
+  // Make it so a logged in user can only remove a skill from their own profile
+
+
 };
 
 module.exports = resolvers;
