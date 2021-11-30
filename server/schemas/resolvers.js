@@ -47,17 +47,25 @@ const resolvers = {
     // Add a third argument to the resolver to access data in our `context`
     addContact: async (parent, { contactData }, context) => {
       //   // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
-      const contact = await Profile.create({ contactData });
-      const token = signToken(contact);
-
-      return { token, contact };
+      if (context.user) {
+        return Profile.findOneAndUpdate(
+          { _id: context.user._id },
+          {
+            $addToSet: { contacts: {contactData} },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+      }
     },
     updateProfile: async (parent, { name, password, email }, context) => {
       //   // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
       if (context.user) {
         return Profile.findOneAndUpdate(
           { _id: context.user._id },
-          {$push: { name: name, passsword: password, email: email }},
+          {$set: { name: name, passsword: password, email: email }},
           {
             new: true,
             runValidators: true,
@@ -100,7 +108,7 @@ const resolvers = {
         return Profile.findOneAndUpdate(
           { _id: context.user._id },
           {
-            $addToSet: { Profile: password, email },
+            $addToSet: { contacts: {contactData} },
           },
           {
             new: true,

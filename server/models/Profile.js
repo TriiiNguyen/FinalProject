@@ -22,6 +22,9 @@ const profileSchema = new Schema({
   },
   contacts: [
     {
+      contactId: {
+        type: Schema.ObjectId
+      },
       firstName: {
         type: String,
         required: true,

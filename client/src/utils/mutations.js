@@ -57,4 +57,34 @@ export const DELETE_CONTACT = gql`
   }
 `
 //update contact
+export const UPDATE_CONTACT = gql`
+  mutation updateContact($contactData: contactInput) {
+    updateContact(contactData: $contactData) {
+      _id
+      name
+      contacts {
+        contactId
+        firstName
+        lastName
+        relationship
+        email
+      }
+    }
+  }
+`
 //update user
+export const UPDATE_PROFILE = gql`
+  mutation updateProfile($name: String!, $password: String!, $email: String!, $contacts: ContactInput!){
+  updateProfile(name: $name, password: $password, email: $email, contacts: $contacts){
+    _id
+      name
+      contacts {
+        contactId
+        firstName
+        lastName
+        relationship
+        email
+      }
+  }
+}
+`;
