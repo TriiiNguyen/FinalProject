@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './pages/Home';
+import EmergencyContact from './pages/EmergencyContact'
 // import Matchup from './pages/Matchup';
 // import Vote from './pages/Vote';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -39,6 +40,7 @@ function App() {
     <Router>
       
       <Route exact path="/" component={Home} />
+      <Route exact path = "/emergencyContact" component={EmergencyContact} />
       
     </Router>
     </ApolloProvider>

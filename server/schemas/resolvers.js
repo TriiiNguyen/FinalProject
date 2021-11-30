@@ -22,7 +22,7 @@ const resolvers = {
 
   Mutation: {
     addProfile: async (parent, { name, email, password, contacts }) => {
-      const profile = await Profile.create({ name, email, password, contacts: [{...contacts}] });
+      const profile = await Profile.create({ name, email, password, contacts: [{ ...contacts }] });
       const token = signToken(profile);
 
       return { token, profile };
@@ -77,35 +77,44 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    deleteContact: async (parent, args, context) => {
+
+
+    deleteContact: async (parent, { contactId }, context) => {
       if (context.user) {
-      return Profile.findOneAndDelete(
-               { _id: context.user._id },
-            
-             );
-       };
-       throw new AuthenticationError('You need to be logged in!');
-       },
-  
-       updateContact: async (parent, {contactData} , context) => {
-        //   // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
-        if (context.user) {
-          return Profile.findOneAndUpdate(
-            { _id: context.user._id },
-            {
-              $addToSet: { Profile:  password, email },
-            },
-            {
-              new: true,
-              runValidators: true,
+        return Profile.findOneAndUpdate(
+          { _id: context.user._id },
+          {
+            $pull: {
+              contacts: {
+                contactId
+              }
             }
-          );
-        }
-      },
+          },
+          {new: true}
+        );
+      };
+      throw new AuthenticationError('You need to be logged in!');
+    },
+
+    updateContact: async (parent, { contactData }, context) => {
+      //   // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
+      if (context.user) {
+        return Profile.findOneAndUpdate(
+          { _id: context.user._id },
+          {
+            $addToSet: { Profile: password, email },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+      }
+    },
   },
-    // Make it so a logged in user can only remove a skill from their own profile
- 
-     
+  // Make it so a logged in user can only remove a skill from their own profile
+
+
 };
 
 module.exports = resolvers;
