@@ -41,8 +41,8 @@ export const ADD_CONTACT = gql`
   }
 `
 
-export const DELETE_CONTACT = gql`
-  mutation deleteContact
-`
+// export const DELETE_CONTACT = gql`
+//   mutation deleteContact
+//`
 //update contact
 //update user

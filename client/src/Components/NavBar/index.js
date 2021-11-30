@@ -39,10 +39,13 @@ function Navigation() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(formData)
+    try{
     await addProfile({
       variables: {...formData}
     })
-    
+  } catch(e) {
+    console.error(e)
+  }
   }
   return (
 
