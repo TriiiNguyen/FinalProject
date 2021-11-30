@@ -1,5 +1,5 @@
 import React from 'react'
-import { useQuery, useMutation } from '@apollo/client'
+import { useMutation } from '@apollo/client'
 import { QUERY_ME } from '../utils/queries'
 
 const EmergencyContact = () => {
