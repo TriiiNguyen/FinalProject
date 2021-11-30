@@ -2,3 +2,8 @@
   background-color: white;
   color: aliceblue;
 }
+
+.Card {
+  padding-left: 10px;
+  padding-right: 10px;
+}

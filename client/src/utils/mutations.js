@@ -1,15 +1,15 @@
 import { gql } from "@apollo/client";
 
 export const ADD_PROFILE = gql`
-  mutation addProfile($name: String!, $email: String!, $password: String!) {
-    addProfile(name: $name, email: $email, password: $password) {
-      token
-      profile {
-        _id
-        name
-      }
+  mutation addProfile($name: String!, $password: String!, $email: String!, $contacts: ContactInput!){
+  addProfile(name: $name, password: $password, email: $email, contacts: $contacts){
+    token
+    profile{
+      _id
+      name
     }
   }
+}
 `;
 
 export const LOGIN_USER = gql`
@@ -23,58 +23,38 @@ export const LOGIN_USER = gql`
     }
   }
 `;
-export const UPDATE_PROFILE = gql`
-   mutation updateProfile($name: String, $password: String, $email: String) {
-     updateProfile(name: $name, password: $password, email: $email) {
-       token
-       profile {
-         _id
-         name
-       }
-     }
-   }
- `;
-export const DELETE_PROFILE = gql`
-   mutation deleteProfile($_id: ID) {     
-     deleteProfile(_id: $_id) {
-       token
-       profile {
-         _id
-         name
-       }
-     }
-   }
- `;
- export const DELETE_CONTACT = gql`
-   mutation deleteContact($contactData: ContactInput) {
-     deleteContact(contactData: $ContactInput) {
+
+export const ADD_CONTACT = gql`
+  mutation addContact ($contactData:ContactInput) {
+    addContact(contactData: $contactData){
       _id
       name
-      password
-      email
-      contacts
-     }
-   }
- `;
- export const UPDATE_CONTACT = gql`
-   mutation deleteContact($contactData: ContactInput) {
-  deleteContact(contactData: $ContactInput) {
-    _id
-    name
-    password
-    email
-    contacts
-   }
- }
- `;
- export const ADD_CONTACT = gql`
-   mutation addContact($contactData: ContactInput) {
-     addContact(contactData: $ContactInput) {
+      contacts {
+        contactId
+        firstName
+        lastName
+        relationship
+        email
+      }
+
+    }
+  }
+`
+
+export const DELETE_CONTACT = gql`
+  mutation deleteContact($contactId: contactId) {
+    deleteContact(contactId: $contactId) {
       _id
       name
-      password
-      email
-      contacts
-     }
-   }
- `;
+      contacts {
+        contactId
+        firstName
+        lastName
+        relationship
+        email
+      }
+    }
+  }
+`
+//update contact
+//update user
