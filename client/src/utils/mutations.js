@@ -23,3 +23,26 @@ export const LOGIN_USER = gql`
     }
   }
 `;
+
+export const ADD_CONTACT = gql`
+  mutation addContact ($contactData:ContactInput) {
+    addContact(contactData: $contactData){
+      _id
+      name
+      contacts {
+        contactId
+        firstName
+        lastName
+        relationship
+        email
+      }
+
+    }
+  }
+`
+
+export const DELETE_CONTACT = gql`
+  mutation deleteContact
+`
+//update contact
+//update user
