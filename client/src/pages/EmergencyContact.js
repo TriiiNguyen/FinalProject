@@ -1,7 +1,7 @@
 import React from 'react'
 import { useMutation, useQuery, gql } from '@apollo/client'
 import { QUERY_ME } from '../utils/queries'
-import { useQuery } from '@apollo/client';
+
 const EmergencyContact = () => {
 
     const { loading, data } = useQuery(QUERY_ME);
