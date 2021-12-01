@@ -10,9 +10,9 @@ const typeDefs = gql`
   }
 
   type Contact {
-    _id: ID!
-    firstName: String!
-    lastName: String!
+    contactId: ID
+    firstName: String
+    lastName: String
     relationship: String
     phoneNumber: String
     email: String

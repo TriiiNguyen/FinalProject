@@ -1,17 +1,15 @@
+
 import React, { useState, useEffect } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
-import { ADD_PROFILE } from '../utils/mutations';
-import Auth from '../utils/auth';
+import { LOGIN_USER } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 
-const SignupForm = () => {
-  const [addProfile, { error }] = useMutation(ADD_PROFILE);
-  // // set initial form state
-  const [userFormData, setUserFormData] = useState({ name: '', email: '', password: '' });
-  // set state for form validation
+const LoginForm = () => {
+  const [userFormData, setUserFormData] = useState({ email: '', password: '' });
   const [validated] = useState(false);
-  // set state for alert
   const [showAlert, setShowAlert] = useState(false);
+  const [login, { error }] = useMutation(LOGIN_USER);
 
   useEffect(() => {
     if (error) {
@@ -21,9 +19,9 @@ const SignupForm = () => {
     }
   }, [error])
 
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    console.log("handle input Signup", name, value);
     setUserFormData({ ...userFormData, [name]: value });
   };
 
@@ -38,56 +36,44 @@ const SignupForm = () => {
     }
 
     try {
-      const { data } = await addProfile({
+      const { data } = await login({
         variables: { ...userFormData }
+        
       });
-      console.log("data", data);
+      
 
-      Auth.login(data.addProfile.token);
+
+
+      Auth.login(data.login.token);
     } catch (err) {
       console.error(err);
+
     }
 
     setUserFormData({
-      name: '',
       email: '',
       password: '',
-    });
+    },console.log(userFormData));
   };
 
   return (
+    
     <>
-      {/* This is needed for the validation functionality above */}
       <Form
         noValidate validated={validated}
         onSubmit={handleFormSubmit}
       >
-        {/* show alert if server response is bad */}
         <Alert
           dismissible onClose={() => setShowAlert(false)}
           show={showAlert} variant='danger'
         >
-          Something went wrong with your signup!
+          Something went wrong with your login credentials!
         </Alert>
-
-        <Form.Group>
-          <Form.Label htmlFor='name'>Name</Form.Label>
-          <Form.Control
-            type='text'
-            placeholder='Your username'
-            name='name'
-            onChange={handleInputChange}
-            value={userFormData.name}
-            required
-          />
-          <Form.Control.Feedback type='invalid'>Username is required!</Form.Control.Feedback>
-        </Form.Group>
-
         <Form.Group>
           <Form.Label htmlFor='email'>Email</Form.Label>
           <Form.Control
-            type='email'
-            placeholder='Your email address'
+            type='text'
+            placeholder='Your email'
             name='email'
             onChange={handleInputChange}
             value={userFormData.email}
@@ -109,7 +95,7 @@ const SignupForm = () => {
           <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
         </Form.Group>
         <Button
-          disabled={!(userFormData.name && userFormData.email && userFormData.password)}
+          disabled={!(userFormData.email && userFormData.password)}
           type='submit'
           variant='success'>
           Submit
@@ -119,4 +105,5 @@ const SignupForm = () => {
   );
 };
 
-export default SignupForm;
+export default LoginForm;
+
