@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
 import SignUpForm from './Components/NavBar/SignUp';
-import EmergencyContact from './pages/EmergencyContact'
+import Profile from './pages/Profile'
 // import Matchup from './pages/Matchup';
 // import Vote from './pages/Vote';
 import Navigation from './Components/NavBar/index';
@@ -42,6 +42,7 @@ function App() {
     <Router>
       <Switch>
       <Route exact path="/" component={Home} />
+      <Route exact path="/profile" component={Profile} />
       <Route exact path="/signup" component={SignUpForm} />
       </Switch>
     </Router>

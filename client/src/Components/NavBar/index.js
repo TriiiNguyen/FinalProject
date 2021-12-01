@@ -8,6 +8,7 @@ import { ADD_PROFILE } from "../../utils/mutations"
 import Auth from '../../utils/auth';
 import SignUpForm from './SignUp';
 import LoginForm from './LogIn';
+import Profile from '../../pages/Profile'
 
 function Navigation() {
   const [modalVisible, setModalVisible] = useState(false)
@@ -75,7 +76,7 @@ function Navigation() {
               {/* if user is logged in show saved books and logout */}
               {Auth.loggedIn() ? (
                 <>
-                  <Nav.Link as={Link} to='/EmergencyContacts'>
+                  <Nav.Link as={Link} to='/profile'>
                     See your Contacts
                   </Nav.Link>
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
