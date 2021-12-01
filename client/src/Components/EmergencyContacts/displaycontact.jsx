@@ -2,7 +2,8 @@ import React from 'react';
 
 
 
-const Contacts = ({ profiles, title }) => {
+const Profile = ({ profiles, title }) => {
+  
   if (!profiles.length) {
     return <h3>No Profiles Yet</h3>;
   }
@@ -31,4 +32,4 @@ const Contacts = ({ profiles, title }) => {
   );
 };
 
-export default Contacts;
+export default Profile;
