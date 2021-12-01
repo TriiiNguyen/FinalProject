@@ -19,6 +19,7 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     relationship: String
+    phoneNumber: String
     email: String
   }
   type Auth {
@@ -34,12 +35,12 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addProfile(name: String!, password: String!, email: String!): Auth
+    addProfile(name: String!, password: String!, email: String!, contacts: ContactInput!): Auth
     login(email:String!, password: String!): Auth
     updateProfile(name: String, password: String, email: String): Auth
     deleteProfile(_id: ID): Auth
     addContact(contactData: ContactInput): Profile
-    deleteContact(contactData: ContactInput): Profile
+    deleteContact(contactId: ID!): Profile
     updateContact(contactData: ContactInput): Profile
   }
 `;
