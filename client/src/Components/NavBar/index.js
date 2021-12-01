@@ -39,10 +39,13 @@ function Navigation() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(formData)
+    try{
     await addProfile({
       variables: {...formData}
     })
-    
+  } catch(e) {
+    console.error(e)
+  }
   }
   return (
 
@@ -117,7 +120,7 @@ function Navigation() {
 
             <Modal.Body>
               <Form onSubmit={handleSubmit}>
-              <Form.Group className="mb-3" controlId="formFirstName">
+              {/* <Form.Group className="mb-3" controlId="formFirstName">
                   <Form.Label>Contact First Name</Form.Label> 
                   <Form.Control type="name" placeholder="Contact First Name" value= {formData.contacts.firstName} onChange= {(event) => setFormData({...formData, contacts:{...formData.contacts,firstName: event.target.value}})} />
                 </Form.Group>
@@ -125,7 +128,7 @@ function Navigation() {
                 <Form.Group className="mb-3" controlId="formLastName">
                   <Form.Label>Contact Last Name</Form.Label>
                   <Form.Control type="name" placeholder="Contact Last Name" value= {formData.contacts.lastName} onChange= {(event) => setFormData({...formData, contacts:{...formData.contacts,lastName: event.target.value}})} />
-                </Form.Group>
+                </Form.Group> */}
 
                 <Form.Group className="mb-3" controlId="formPhoneNumber">
                   <Form.Label>Contact Phone Number</Form.Label>
@@ -137,7 +140,7 @@ function Navigation() {
                   <Form.Control type="email" placeholder="Contact Enter email" value= {formData.contacts.email} onChange= {(event) => setFormData({...formData, contacts:{...formData.contacts,email: event.target.value}})} />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formLastName">
+                <Form.Group className="mb-3" controlId="contactRelationship">
                   <Form.Label>Contact Relationship</Form.Label>
                   <Form.Control type="name" placeholder="Contact Relationship" value= {formData.contacts.relationship} onChange= {(event) => setFormData({...formData, contacts:{...formData.contacts,relationship: event.target.value}})}/>
                 </Form.Group>
