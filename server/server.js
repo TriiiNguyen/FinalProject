@@ -1,3 +1,4 @@
+//import api from '../client/src/utils/api';
 //const http = require('http');
 const express = require('express');
 //const MessagingResponse = require('twilio').twiml.MessagingResponse;
@@ -24,7 +25,7 @@ server.applyMiddleware({ app });
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
- if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
 }
 
@@ -35,9 +36,9 @@ app.get('*', (req, res) => {
 //setting up Message routes 
 
 
-app.post('/api/messages', (req,res) =>{
+app.post('/api/messages', (req, res) => {
   //call the send_sms.js file 
-  console.log("Calling the express side to send message "); 
+  console.log("Calling the express side to send message ");
   require('dotenv').config();
   const accountSid = process.env.TWILIO_ACCOUNT_SID;
   const authToken = process.env.TWILIO_AUTH_TOKEN;
@@ -55,7 +56,7 @@ app.post('/api/messages', (req,res) =>{
       return message;
     });
 
-}); 
+});
 
 db.once('open', () => {
   app.listen(PORT, () => {

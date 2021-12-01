@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import ReactDOM from 'react-dom';
+import axios from 'axios'
 import { EmergencyButton } from '../Components/EmergencyButton';
 import { SwitchButton } from '../Components/SwitchPageButton';
 import Navigation from '../Components/NavBar'

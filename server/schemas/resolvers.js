@@ -23,10 +23,10 @@ const resolvers = {
 
   Mutation: {
     // addProfile: async (parent,args) => {
-      // const profile = await Profile.create(args);
+    // const profile = await Profile.create(args);
     addProfile: async (parent, { name, email, password, contacts }) => {
       const profileObject = { name, email, password, contacts: [...contacts] }
-      console.log(profileObject)
+      console.log("profileObject", profileObject)
       const profile = await Profile.create(profileObject);
       const token = signToken(profile);
 
@@ -56,7 +56,7 @@ const resolvers = {
         return Profile.findOneAndUpdate(
           { _id: context.user._id },
           {
-            $addToSet: { contacts: {contactData} },
+            $addToSet: { contacts: { contactData } },
           },
           {
             new: true,
@@ -92,7 +92,7 @@ const resolvers = {
               }
             }
           },
-          {new: true}
+          { new: true }
         );
       };
       throw new AuthenticationError('You need to be logged in!');
@@ -104,7 +104,7 @@ const resolvers = {
         return Profile.findOneAndUpdate(
           { _id: context.user._id },
           {
-            $addToSet: { contacts: {contactData} },
+            $addToSet: { contacts: { contactData } },
           },
           {
             new: true,

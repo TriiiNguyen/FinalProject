@@ -5,7 +5,7 @@ import { ADD_PROFILE } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 const SignupForm = () => {
-  const[addProfile, {error}]= useMutation(ADD_PROFILE);
+  const [addProfile, { error }] = useMutation(ADD_PROFILE);
   // // set initial form state
   const [userFormData, setUserFormData] = useState({ name: '', email: '', password: '' });
   // set state for form validation
@@ -13,16 +13,17 @@ const SignupForm = () => {
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
 
-  useEffect(()=>{
-    if(error){
+  useEffect(() => {
+    if (error) {
       setShowAlert(true)
-    }else{
+    } else {
       setShowAlert(false);
     }
   }, [error])
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
+    console.log("handle input Signup", name, value);
     setUserFormData({ ...userFormData, [name]: value });
   };
 
@@ -37,11 +38,11 @@ const SignupForm = () => {
     }
 
     try {
-      const {data} = await addProfile({
-        variables: {...userFormData}
+      const { data } = await addProfile({
+        variables: { ...userFormData }
       });
+      console.log("data", data);
 
-  
       Auth.login(data.addProfile.token);
     } catch (err) {
       console.error(err);
@@ -57,14 +58,14 @@ const SignupForm = () => {
   return (
     <>
       {/* This is needed for the validation functionality above */}
-      <Form 
-      noValidate validated={validated} 
-      onSubmit={handleFormSubmit}
+      <Form
+        noValidate validated={validated}
+        onSubmit={handleFormSubmit}
       >
         {/* show alert if server response is bad */}
-        <Alert 
-        dismissible onClose={() => setShowAlert(false)} 
-        show={showAlert} variant='danger'
+        <Alert
+          dismissible onClose={() => setShowAlert(false)}
+          show={showAlert} variant='danger'
         >
           Something went wrong with your signup!
         </Alert>
