@@ -31,4 +31,4 @@ const Contacts = ({ profiles, title }) => {
   );
 };
 
-export default ProfileList;
+export default Contacts;

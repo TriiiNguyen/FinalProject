@@ -3,12 +3,12 @@ const {Schema}= require('mongoose');
 const contactSchema = new Schema({
     firstName: {
       type: String,
-      required: true,
+      // required: true,
       trim: true,
     },
     lastName: {
       type: String,
-      required: true,
+      // required: true,
       trim: true,
     },
     relationship: {
