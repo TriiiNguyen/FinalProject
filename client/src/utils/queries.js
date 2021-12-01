@@ -6,13 +6,11 @@ export const QUERY_ME = gql`
     me {
       _id
       name
-      contacts {
-        firstName
-        lastName
-        relationship
-        phoneNumber
-        email
-      }
+      emergencyFirstName
+      emergencyLastName
+      emergencyRelationship
+      emergencyPhoneNumber
+      emergencyEmail
     }
   }
 `;

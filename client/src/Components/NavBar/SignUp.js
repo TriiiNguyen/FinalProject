@@ -7,7 +7,16 @@ import Auth from '../../utils/auth';
 const SignupForm = () => {
   const [addProfile, { error }] = useMutation(ADD_PROFILE);
   // // set initial form state
-  const [userFormData, setUserFormData] = useState({ name: '', email: '', password: '' });
+  const [userFormData, setUserFormData] = useState({ 
+    name: '', 
+    email: '', 
+    password: '', 
+    emergencyFirstName: '', 
+    emergencyLastName: '', 
+    emergencyRelationship: '', 
+    emergencyPhoneNumber: '',
+    emergencyEmail: ''
+  });
   // set state for form validation
   const [validated] = useState(false);
   // set state for alert
@@ -49,16 +58,14 @@ const SignupForm = () => {
     }
 
     setUserFormData({
-      name: '',
-      email: '',
-      password: '',
-      contacts: {
-        firstName: "",
-        lastName: "",
-        relationship: "",
-        phoneNumber: "",
-        email: ""
-      },
+    name: '', 
+    email: '', 
+    password: '', 
+    emergencyFirstName: '', 
+    emergencyLastName: '', 
+    emergencyRelationship: '', 
+    emergencyPhoneNumber: '',
+    emergencyEmail: ''
     });
   };
 
@@ -117,70 +124,70 @@ const SignupForm = () => {
         </Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor='firstname'>Emergency Contact's First Name</Form.Label>
+          <Form.Label htmlFor='emergencyFirstName'>Emergency Contact's First Name</Form.Label>
           <Form.Control
             type='text'
             placeholder='contact first name'
-            name='first name'
+            name='emergencyFirstName'
             onChange={handleInputChange}
-            value={userFormData.contacts}
+            value={userFormData.emergencyFirstName}
             required
           />
           <Form.Control.Feedback type='invalid'>first name is required!</Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor='lastname'>Emergency Contact's Last Name</Form.Label>
+          <Form.Label htmlFor='emergencyLastName'>Emergency Contact's Last Name</Form.Label>
           <Form.Control
             type='text'
             placeholder='contact last name'
-            name='lastname'
+            name='emergencyLastName'
             onChange={handleInputChange}
-            value={userFormData.contacts}
+            value={userFormData.emergencyLastName}
             required
           />
           <Form.Control.Feedback type='invalid'>last name is required!</Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor='phonenumber'>Emergency Contact's Phone Number</Form.Label>
+          <Form.Label htmlFor='emergencyPhoneNumber'>Emergency Contact's Phone Number</Form.Label>
           <Form.Control
             type='text'
             placeholder='contacts phone number'
-            name='phonenumber'
+            name='emergencyPhoneNumber'
             onChange={handleInputChange}
-            value={userFormData.contacts}
+            value={userFormData.emergencyPhoneNumber}
             required
           />
           <Form.Control.Feedback type='invalid'>Phone Number is required!</Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor='contactemail'>Contact's Email</Form.Label>
+          <Form.Label htmlFor='emergencyEmail'>Contact's Email</Form.Label>
           <Form.Control
             type='text'
             placeholder='contact email'
-            name='contact email'
+            name='emergencyEmail'
             onChange={handleInputChange}
-            value={userFormData.contacts}
+            value={userFormData.emergencyEmail}
             required
           />
         
         </Form.Group>
         <Form.Group>
-          <Form.Label htmlFor='relationship'>Relationship</Form.Label>
+          <Form.Label htmlFor='emergencyRelationship'>Relationship</Form.Label>
           <Form.Control
             type='text'
             placeholder='relationship'
-            name='relationship'
+            name='emergencyRelationship'
             onChange={handleInputChange}
-            value={userFormData.contacts}
+            value={userFormData.emergencyRelationship}
             required
           />
         </Form.Group>
         
         <Button
-          disabled={!(userFormData.name && userFormData.email && userFormData.password)}
+          disabled={!(userFormData.name && userFormData.email && userFormData.password && userFormData.emergencyFirstName && userFormData.emergencyLastName && userFormData.emergencyRelationship && userFormData.emergencyPhoneNumber && userFormData.emergencyEmail)}
           type='submit'
           variant='success'>
           Submit

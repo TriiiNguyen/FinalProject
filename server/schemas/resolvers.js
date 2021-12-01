@@ -24,10 +24,10 @@ const resolvers = {
   Mutation: {
     // addProfile: async (parent,args) => {
     // const profile = await Profile.create(args);
-    addProfile: async (parent, { name, email, password, contacts }) => {
-      const profileObject = { name, email, password, contacts: [...contacts] }
-      console.log("profileObject", profileObject)
-      const profile = await Profile.create(profileObject);
+    addProfile: async (parent, args) => {
+      // const profileObject = args
+      // console.log("profileObject", profileObject)
+      const profile = await Profile.create(args);
       const token = signToken(profile);
 
       return { token, profile };
@@ -50,69 +50,69 @@ const resolvers = {
     },
 
     // Add a third argument to the resolver to access data in our `context`
-    addContact: async (parent, { contactData }, context) => {
-      //   // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
-      if (context.user) {
-        return Profile.findOneAndUpdate(
-          { _id: context.user._id },
-          {
-            $addToSet: { contacts: { contactData } },
-          },
-          {
-            new: true,
-            runValidators: true,
-          }
-        );
-      }
-    },
-    updateProfile: async (parent, { name, password, email }, context) => {
-      //   // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
-      if (context.user) {
-        const updatedUser = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $push: { contacts: contactData } },
-          { new: true }
-        );
+    // addContact: async (parent, { contactData }, context) => {
+    //   //   // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
+    //   if (context.user) {
+    //     return Profile.findOneAndUpdate(
+    //       { _id: context.user._id },
+    //       {
+    //         $addToSet: { contacts: { contactData } },
+    //       },
+    //       {
+    //         new: true,
+    //         runValidators: true,
+    //       }
+    //     );
+    //   }
+    // },
+    // updateProfile: async (parent, { name, password, email }, context) => {
+    //   //   // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
+    //   if (context.user) {
+    //     const updatedUser = await User.findOneAndUpdate(
+    //       { _id: context.user._id },
+    //       { $push: { contacts: contactData } },
+    //       { new: true }
+    //     );
 
-        return updatedUser;
-      }
+    //     return updatedUser;
+    //   }
 
-      throw new AuthenticationError("You need to be logged in!");
-    },
+    //   throw new AuthenticationError("You need to be logged in!");
+    // },
 
 
-    deleteContact: async (parent, { contactId }, context) => {
-      if (context.user) {
-        return Profile.findOneAndUpdate(
-          { _id: context.user._id },
-          {
-            $pull: {
-              contacts: {
-                contactId
-              }
-            }
-          },
-          { new: true }
-        );
-      };
-      throw new AuthenticationError('You need to be logged in!');
-    },
+    // deleteContact: async (parent, { contactId }, context) => {
+    //   if (context.user) {
+    //     return Profile.findOneAndUpdate(
+    //       { _id: context.user._id },
+    //       {
+    //         $pull: {
+    //           contacts: {
+    //             contactId
+    //           }
+    //         }
+    //       },
+    //       { new: true }
+    //     );
+    //   };
+    //   throw new AuthenticationError('You need to be logged in!');
+    // },
 
-    updateContact: async (parent, { contactData }, context) => {
-      //   // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
-      if (context.user) {
-        return Profile.findOneAndUpdate(
-          { _id: context.user._id },
-          {
-            $addToSet: { contacts: { contactData } },
-          },
-          {
-            new: true,
-            runValidators: true,
-          }
-        );
-      }
-    },
+    // updateContact: async (parent, { contactData }, context) => {
+    //   //   // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
+    //   if (context.user) {
+    //     return Profile.findOneAndUpdate(
+    //       { _id: context.user._id },
+    //       {
+    //         $addToSet: { contacts: { contactData } },
+    //       },
+    //       {
+    //         new: true,
+    //         runValidators: true,
+    //       }
+    //     );
+    //   }
+    // },
   },
   // Make it so a logged in user can only remove a skill from their own profile
 

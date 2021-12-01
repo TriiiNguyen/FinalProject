@@ -6,25 +6,30 @@ const typeDefs = gql`
     name: String!
     email: String
     password: String
-    contacts: [Contact]
+    emergencyFirstName: String
+    emergencyLastName: String
+    emergenctRelationship: String
+    emergencyPhoneNumber: String
+    emergencyEmail: String
+    
   }
 
-  type Contact {
-    contactId: ID
-    firstName: String
-    lastName: String
-    relationship: String
-    phoneNumber: String
-    email: String
-  }
+  # type Contact {
+  #   contactId: ID
+  #   firstName: String
+  #   lastName: String
+  #   relationship: String
+  #   phoneNumber: String
+  #   email: String
+  # }
 
-  input ContactInput {
-    firstName: String
-    lastName: String
-    relationship: String
-    phoneNumber: String
-    email: String
-  }
+  # input ContactInput {
+  #   firstName: String
+  #   lastName: String
+  #   relationship: String
+  #   phoneNumber: String
+  #   email: String
+  # }
 
   type Auth {
     token: ID!
@@ -39,13 +44,13 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addProfile(name: String!, password: String!, email: String!, contacts: [ContactInput]!): Auth
+    addProfile(name: String!, email: String!, password: String!, emergencyFirstName: String!, emergencyLastName: String!, emergencyRelationship: String!, emergencyPhoneNumber: String!, emergencyEmail: String! ): Auth
     login(email:String!, password: String!): Auth
-    updateProfile(name: String, password: String, email: String): Profile
-    deleteProfile(_id: ID): Auth
-    addContact(contactData: ContactInput): Profile
-    deleteContact(contactId: ID!): Profile
-    updateContact(contactData: ContactInput): Profile
+    # updateProfile(name: String, password: String, email: String): Profile
+    # deleteProfile(_id: ID): Auth
+    #addContact(contactData: ContactInput): Profile
+    # deleteContact(contactId: ID!): Profile
+    # updateContact(contactData: ContactInput): Profile
   }
 `;
 
