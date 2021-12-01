@@ -7,12 +7,12 @@ const profileSchema = new Schema({
 
   name: {
     type: String,
-    // required: true,
+    required: true,
     trim: true,
   },
   email: {
     type: String,
-    // required: true,
+    required: true,
     unique: true,
     match: [/.+@.+\..+/, 'Must match an email address!'],
   },
@@ -28,17 +28,17 @@ const profileSchema = new Schema({
       },
       firstName: {
         type: String,
-        required: true,
+        // required: true,
         trim: true,
       },
       lastName: {
         type: String,
-        required: true,
+        // required: true,
         trim: true,
       },
       relationship: {
         type: String,
-        required: true,
+        // required: true,
         trim: true,
       },
       phoneNumber: {
@@ -47,7 +47,7 @@ const profileSchema = new Schema({
       },
       email: {
         type: String,
-        required: true,
+        // required: true,
         unique: true,
         match: [/.+@.+\..+/, "Must match an email address!"],
       },
