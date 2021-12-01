@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { Redirect, useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 
 import { QUERY_ME } from '../utils/queries';
 
 import Auth from '../utils/auth';
 
 const Profile = () => {
+  // const [profileData, setProfileData] = useState([]);
+  // const [contactId, setContactId] = useState('')
+  // const [contactData] = useMutation()
+  // useEffect(() => {
+  //   return () =>  contactId(contactInput)
+  // })
   const { me } = useParams();
 
   // If there is no `profileId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
