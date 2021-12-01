@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
-const contactSchema = require('./Contact')
+//const contactSchema = require('./Contact')
 
 const profileSchema = new Schema({
 
@@ -21,38 +21,38 @@ const profileSchema = new Schema({
     required: true,
     maxlength: 4,
   },
-  contacts: [
-    {
-      contactId: {
-        type: Schema.ObjectId
-      },
-      firstName: {
+  // contacts: 
+  //   {
+      // contactId: {
+      //   type: Schema.ObjectId
+      // },
+      emergencyFirstName: {
         type: String,
         // required: true,
         trim: true,
       },
-      lastName: {
+      emergencyLastName: {
         type: String,
         // required: true,
         trim: true,
       },
-      relationship: {
+      emergencyRelationship: {
         type: String,
         // required: true,
         trim: true,
       },
-      phoneNumber: {
+      emergencyPhoneNumber: {
         type: String,
         //match: [/^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/,"Must match a phone number!"]
       },
-      email: {
+      emergencyEmail: {
         type: String,
         // required: true,
         unique: true,
         match: [/.+@.+\..+/, "Must match an email address!"],
       },
-    }
-  ]
+    //}
+  
  
 });
 
