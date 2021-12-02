@@ -53,10 +53,10 @@ jose.marrufo@rocketmail.com
 
 OR follow us on GitHub
 [Jmarrufo27]("github.com/Jmarrufo27")
-[Jmarrufo27]("github.com/TriiiNguyen")
-[Jmarrufo27]("github.com/lukesimon32")
-[Jmarrufo27]("github.com/Aya-22")
-[Jmarrufo27]("github.com/damiib")
+[TriiiNguyen]("github.com/TriiiNguyen")
+[lukesimon32]("github.com/lukesimon32")
+[Aya-22]("github.com/Aya-22")
+[damiib]("github.com/damiib")
 
 
 -----------------------------------------
