@@ -36,7 +36,7 @@ const Profile = () => {
     return <div>Loading...</div>;
   }
 
-  if (!profile?.name) {
+  if (!profile) {
     return (
       <h4>
         You need to be logged in to see your profile page. Use the navigation
