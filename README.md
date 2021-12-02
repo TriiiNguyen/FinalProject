@@ -7,7 +7,6 @@
 * [Description](#description)
 * [Installaion Instrusctions](#instalation-instructions)
 * [Usage](#usage)
-* [License](#license)
 * [Contributing](#contributing)
 * [Questions](#questions)
 * [Video](#video)
