@@ -2,8 +2,8 @@
 
 brown@MacBook-Pro ReadMe-Generator % npm run develop
 ? What is the name of your project? Final Project
-? What is your GitHub user name? DamiiB
-? What is your email? damlbro013@gmail.com
+? What is your GitHub user name? Group 3
+? What is your email? Group Project
 ? Describe your project? The project is an app for people who are being abused.  They can sign up, then log into their account.  After the complete their registration by signing adding their emergency contacts they will be able to press the alert me button to get help from their contacts.
 ? What are the installation instructions? React, ApolloServer, Stripe-js, bootstrap, graphql
 ? What does the user need to know about using you
@@ -13,8 +13,8 @@ r project? The user needs to know that React, ApolloServer, Stripe-js, bootstrap
 ? What does reader needs to know about contributing to your project? Nothing to know
 {
   title: 'Final Project',
-  GitHub: 'DamiiB',
-  Email: 'damlbro013@gmail.com',
+  GitHub: 'GroupProject 3',
+  Email: '@gmail.com',
   description: 'An alert app to help individuals who are dealing with abuse
   installation: 'express and ApolloServer
   license: 'none',
@@ -58,6 +58,6 @@ r project? The user needs to know that React, ApolloServer, Stripe-js, bootstrap
 
   ## Questions
 
-  [damiib](https://github.com/damiib)
+  [Group 3](https://github.comb)
 
-If you have questions, please contact me at: damlbro013@gmail.com
+If you have questions, please contact me at: Group 3
