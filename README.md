@@ -50,7 +50,7 @@ lukesimon0@gmail.com
 
 nguytri8598@gmail.com
 
-Jayala0695@gmail.com
+j.ayala0695@gmail.com
 
 jose.marrufo@rocketmail.com
 
