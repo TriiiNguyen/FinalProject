@@ -48,14 +48,24 @@ If you feel the need to contrinute help or advice, we can always be reached at o
 If you have any questions plese dont hessitate to email us here
 
 damibro@gmail.com
+
 lukesimon0@gmail.com
+
+nguytri8598@gmail.com
+
+Jayala0695@gmail.com
+
 jose.marrufo@rocketmail.com
 
 OR follow us on GitHub
 [Jmarrufo27]("github.com/Jmarrufo27")
+
 [TriiiNguyen]("github.com/TriiiNguyen")
+
 [lukesimon32]("github.com/lukesimon32")
+
 [Aya-22]("github.com/Aya-22")
+
 [damiib]("github.com/damiib")
 
 
