@@ -20,6 +20,7 @@ Alert_Me is an easy to use website that is meant to be a resource for those suff
 
 ## Installation Instructions
 This will be a deployed website.
+https://alert-me-32.herokuapp.com/
 
 -----------------------------------------
 
